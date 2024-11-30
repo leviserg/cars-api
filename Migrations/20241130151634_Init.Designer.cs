@@ -12,8 +12,8 @@ using cars_api.Data;
 namespace cars_api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241129150044_InitBrand")]
-    partial class InitBrand
+    [Migration("20241130151634_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -71,6 +71,8 @@ namespace cars_api.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("BrandId");
+
+                    b.HasIndex("Id", "BrandId");
 
                     b.ToTable("Cars");
                 });

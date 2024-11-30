@@ -18,7 +18,8 @@ namespace cars_api.Data
                 new Car { Name = "Corolla", Year = 2020, BrandId = 1 },
                 new Car { Name = "Mustang", Year = 1963, BrandId = 2 },
                 new Car { Name = "Corvette", Year = 1963, BrandId = 3 },
-                new Car { Name = "Maxima", Year = 2005, BrandId = 4 }
+                new Car { Name = "Maxima", Year = 2005, BrandId = 4 },
+                new Car { Name = "Tucson", Year = 2015, BrandId = 5 }
             );
             _dbContext.SaveChanges();
         }
@@ -29,7 +30,8 @@ namespace cars_api.Data
                 new Brand { Name = "Toyota" },
                 new Brand { Name = "Ford"},
                 new Brand { Name = "Chevrolet" },
-                new Brand { Name = "Nissan" }
+                new Brand { Name = "Nissan" },
+                new Brand { Name = "Hyundai" }
             );
             _dbContext.SaveChanges();
         }

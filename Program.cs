@@ -5,10 +5,14 @@ var builder = WebApplication.CreateBuilder(args);
 
 var configuration = builder.Configuration;
 
+string dbName = Environment.GetEnvironmentVariable("DEVELOPER_DB") ?? string.Empty;
+string dbLogin = Environment.GetEnvironmentVariable("DEVELOPER_LOGIN") ?? string.Empty;
+string dbPwd = Environment.GetEnvironmentVariable("DEVELOPER_PWD") ?? string.Empty;
+
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseSqlServer(
-        configuration.GetConnectionString("SqlServer"), 
+        string.Format(configuration.GetConnectionString("SqlServer") ?? string.Empty, dbLogin, dbPwd, dbName), 
         dboptions =>
         {
             dboptions.EnableRetryOnFailure(3, TimeSpan.FromSeconds(3), null);

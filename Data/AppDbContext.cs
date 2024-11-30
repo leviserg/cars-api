@@ -16,13 +16,17 @@ namespace cars_api.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+            base.OnModelCreating(modelBuilder);
+            
+            modelBuilder.Entity<Car>()
+                .HasIndex(c => new { c.Id, c.BrandId });
+
             modelBuilder.Entity<Car>()
                 .HasOne(c => c.Brand)
                 .WithMany(b => b.Cars)
                 .HasForeignKey(c => c.BrandId)
                 .OnDelete(DeleteBehavior.Cascade);
-
-            base.OnModelCreating(modelBuilder);
         }
 
     }

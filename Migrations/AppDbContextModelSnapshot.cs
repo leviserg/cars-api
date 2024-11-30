@@ -69,6 +69,8 @@ namespace cars_api.Migrations
 
                     b.HasIndex("BrandId");
 
+                    b.HasIndex("Id", "BrandId");
+
                     b.ToTable("Cars");
                 });
 
